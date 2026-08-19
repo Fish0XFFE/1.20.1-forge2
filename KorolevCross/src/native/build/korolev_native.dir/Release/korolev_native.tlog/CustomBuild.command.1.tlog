@@ -1,0 +1,20 @@
+^C:\USERS\FISH\DESKTOP\KOROLEVCROSS\SRC\NATIVE\BUILD\CMAKEFILES\7B15ECFBC5ADACB0AEE3FF25A6BB0058\TERRAIN_KERNEL.OBJ.RULE
+setlocal
+E:\CUDA\bin\nvcc.exe -c -arch=native -Xcompiler "/EHsc /MD"  -I"E:/CUDA/include" -I"E:/Program Files/Java/jdk-26.0.1/include" -I"E:/Program Files/Java/jdk-26.0.1/include/win32" -I"E:/Program Files/Java/jdk-26.0.1/include" -I"C:/Users/fish/Desktop/KorolevCross/src/native/src" -o C:/Users/fish/Desktop/KorolevCross/src/native/build/terrain_kernel.obj C:/Users/fish/Desktop/KorolevCross/src/native/src/terrain_kernel.cu
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\FISH\DESKTOP\KOROLEVCROSS\SRC\NATIVE\CMAKELISTS.TXT
+setlocal
+E:\CMake\bin\cmake.exe -SC:/Users/fish/Desktop/KorolevCross/src/native -BC:/Users/fish/Desktop/KorolevCross/src/native/build --check-stamp-file C:/Users/fish/Desktop/KorolevCross/src/native/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

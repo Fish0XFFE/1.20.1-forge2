@@ -1,0 +1,10 @@
+^C:\USERS\FISH\DESKTOP\KOROLEVCROSS\SRC\NATIVE\CMAKELISTS.TXT
+setlocal
+E:\CMake\bin\cmake.exe -SC:/Users/fish/Desktop/KorolevCross/src/native -BC:/Users/fish/Desktop/KorolevCross/src/native/build --check-stamp-file C:/Users/fish/Desktop/KorolevCross/src/native/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

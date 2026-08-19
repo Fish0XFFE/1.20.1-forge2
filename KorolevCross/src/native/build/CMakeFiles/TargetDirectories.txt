@@ -1,0 +1,3 @@
+C:/Users/fish/Desktop/KorolevCross/src/native/build/CMakeFiles/korolev_native.dir
+C:/Users/fish/Desktop/KorolevCross/src/native/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/fish/Desktop/KorolevCross/src/native/build/CMakeFiles/ZERO_CHECK.dir

@@ -1,0 +1,10 @@
+^C:\USERS\FISH\DESKTOP\KOROLEVCROSS\SRC\NATIVE\BUILD\CMAKEFILES\62319272B11BF9B1A6576F76B44D9863\GENERATE.STAMP.RULE
+setlocal
+E:\CMake\bin\cmake.exe -SC:/Users/fish/Desktop/KorolevCross/src/native -BC:/Users/fish/Desktop/KorolevCross/src/native/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/fish/Desktop/KorolevCross/src/native/build/korolev_native.slnx
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
