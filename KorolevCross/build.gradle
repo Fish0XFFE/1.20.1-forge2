@@ -67,6 +67,8 @@ tasks.named('processResources', ProcessResources).configure {
 }
 
 tasks.named('jar', Jar).configure {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
     manifest {
         attributes([
                 'Specification-Title'     : mod_id,
@@ -79,11 +81,14 @@ tasks.named('jar', Jar).configure {
                 'MixinConfigs'            : "${mod_id}.mixins.json"
         ])
     }
-    // 包含 DLL
+
     from('src/main/resources/native/Release/korolev_native.dll') {
         into 'native'
         rename { 'korolev_native.dll' }
     }
+
+    exclude 'native/Release/**'
+
     finalizedBy 'reobfJar'
 }
 
