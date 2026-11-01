@@ -4,12 +4,15 @@ license="MIT"
 
 [[mods]]
 modId="korolevcross"
-version="1.0.0"
+version="1.9.0"
 displayName="KorolevCross"
 authors="fish"
 description='''
 科罗廖夫十字绽开，我是卡门线上的花
 '''
+
+[[mixins]]
+config="korolevcross.mixins.json"
 
 [[dependencies.korolevcross]]
 modId="forge"

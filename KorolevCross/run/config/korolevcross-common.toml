@@ -1,0 +1,4 @@
+[generation]
+enabled = true
+mixedPrecision = false
+debug = false

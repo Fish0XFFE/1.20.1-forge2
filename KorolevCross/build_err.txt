@@ -1,0 +1,51 @@
+﻿.\gradlew.bat : WARNING: A restricted method in java.lang.System has been called
+所在位置 行:1 字符: 170
++ ... KorolevCross"; .\gradlew.bat compileJava --console=plain 2>&1 | Out-F ...
++                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: A rest...has been called:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+WARNING: java.lang.System::load has been called by net.rubygrapefruit.platform.internal.NativeLibraryLoader in an unnam
+ed module (file:/C:/Users/fish/.gradle/wrapper/dists/gradle-8.8-bin/dl7vupf4psengwqhwktix4v1/gradle-8.8/lib/native-plat
+form-0.22-milestone-26.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.8/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+
+> Configure project :
+MixinGradle did not locate the diffplug APT plugin, skipping eclipse task configuration
+
+> Task :downloadMcpConfig
+> Task :extractSrg UP-TO-DATE
+> Task :createMcpToSrg UP-TO-DATE
+
+> Task :compileJava
+ע: SpongePowered MIXIN Annotation Processor Version=0.8.5 (MixinGradle Version=0.7)
+ע: Supported obfuscation types: ObfuscationServiceMCP supports [notch] ObfuscationServiceFG3 supports [searge]
+C:\Users\fish\Desktop\KorolevCross\src\main\java\com\fish\korolevcross\mixin\NoiseInterpolatorMixin.java:13: ����: Mixi
+n target net.minecraft.world.level.levelgen.NoiseChunk$NoiseInterpolator is public and should be specified in value
+@Mixin(targets = "net.minecraft.world.level.levelgen.NoiseChunk$NoiseInterpolator")
+^
+ע: Loading searge mappings from C:\Users\fish\Desktop\KorolevCross\build\createMcpToSrg\output.tsrg
+ע: Writing refmap to C:\Users\fish\Desktop\KorolevCross\build\tmp\compileJava\compileJava-refmap.json
+ע: Writing refmap to C:\Users\fish\Desktop\KorolevCross\build\tmp\compileJava\compileJava-refmap.json
+ע: Writing searge composite mappings to C:\Users\fish\Desktop\KorolevCross\build\tmp\compileJava\compileJava-mappings.t
+srg
+ע: Writing refmap to C:\Users\fish\Desktop\KorolevCross\build\tmp\compileJava\compileJava-refmap.json
+ע: Writing refmap to C:\Users\fish\Desktop\KorolevCross\build\tmp\compileJava\compileJava-refmap.json
+ע: Writing searge composite mappings to C:\Users\fish\Desktop\KorolevCross\build\tmp\compileJava\compileJava-mappings.t
+srg
+C:\Users\fish\Desktop\KorolevCross\src\main\java\com\fish\korolevcross\KorolevCross.java:23: ����: [removal] ModLoading
+Context �е� get() �ѹ�ʱ, �ұ��Ϊ��ɾ��
+        ModLoadingContext.get().registerConfig(Type.COMMON, ModConfig.SPEC, "korolevcross-common.toml");
+                         ^
+C:\Users\fish\Desktop\KorolevCross\src\main\java\com\fish\korolevcross\KorolevCross.java:24: ����: [removal] FMLJavaMod
+LoadingContext �е� get() �ѹ�ʱ, �ұ��Ϊ��ɾ��
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
+                                ^
+3 ������
+
+BUILD SUCCESSFUL in 12s
+4 actionable tasks: 2 executed, 2 up-to-date

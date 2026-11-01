@@ -2,23 +2,53 @@ package com.fish.korolevcross.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 
-public class ModConfig {
+public final class ModConfig {
     public static final ForgeConfigSpec SPEC;
-    public static ForgeConfigSpec.BooleanValue ENABLE_GPU_GENERATION;
-    public static ForgeConfigSpec.IntValue GPU_CHUNK_BATCH_SIZE;
-    public static ForgeConfigSpec.IntValue RTX_SAMPLES_PER_PIXEL;
-    public static ForgeConfigSpec.BooleanValue ENABLE_MIPMAP_FILTER;
-    public static ForgeConfigSpec.DoubleValue ANTI_ALIASING_THRESHOLD;
+
+    private static final ForgeConfigSpec.BooleanValue ENABLED;
+    private static final ForgeConfigSpec.BooleanValue MIXED_PRECISION;
+    private static final ForgeConfigSpec.BooleanValue DEBUG;
 
     static {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
-        builder.comment("KorolevCross GPU Configuration").push("gpu");
-        ENABLE_GPU_GENERATION = builder.define("enableGpuGeneration", true);
-        GPU_CHUNK_BATCH_SIZE = builder.defineInRange("gpuChunkBatchSize", 4, 1, 64);
-        RTX_SAMPLES_PER_PIXEL = builder.defineInRange("rtxSamplesPerPixel", 4, 1, 64);
-        ENABLE_MIPMAP_FILTER = builder.define("enableMipmapFilter", true);
-        ANTI_ALIASING_THRESHOLD = builder.defineInRange("antiAliasingThreshold", 0.5, 0.0, 1.0);
+        builder.comment("GPU accelerated chunk density generation").push("generation");
+        ENABLED = builder
+                .comment("Generate terrain density field on the GPU. Terrain stays identical to vanilla.")
+                .define("enabled", true);
+        MIXED_PRECISION = builder
+                .comment("Use the fp16/fp32/fp64 staged pipeline instead of exact fp64 evaluation.")
+                .define("mixedPrecision", false);
+        DEBUG = builder
+                .comment("Log GPU initialization and per-chunk statistics.")
+                .define("debug", false);
         builder.pop();
         SPEC = builder.build();
+    }
+
+    private ModConfig() {
+    }
+
+    public static boolean enabled() {
+        try {
+            return ENABLED.get();
+        } catch (IllegalStateException e) {
+            return true;
+        }
+    }
+
+    public static boolean mixedPrecision() {
+        try {
+            return MIXED_PRECISION.get();
+        } catch (IllegalStateException e) {
+            return false;
+        }
+    }
+
+    public static boolean debug() {
+        try {
+            return DEBUG.get();
+        } catch (IllegalStateException e) {
+            return false;
+        }
     }
 }

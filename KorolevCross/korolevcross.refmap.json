@@ -1,0 +1,30 @@
+{
+  "mappings": {
+    "com/fish/korolevcross/mixin/NoiseInterpolatorMixin": {
+      "fillArray": "Lnet/minecraft/world/level/levelgen/NoiseChunk$NoiseInterpolator;m_207362_([DLnet/minecraft/world/level/levelgen/DensityFunction$ContextProvider;)V",
+      "net.minecraft.world.level.levelgen.NoiseChunk$NoiseInterpolator": "net/minecraft/world/level/levelgen/NoiseChunk$NoiseInterpolator"
+    },
+    "com/fish/korolevcross/mixin/NoiseChunkMixin": {
+      "initializeForFirstCellX": "Lnet/minecraft/world/level/levelgen/NoiseChunk;m_188791_()V",
+      "fillSlice": "Lnet/minecraft/world/level/levelgen/NoiseChunk;m_209220_(ZI)V"
+    },
+    "com/fish/korolevcross/mixin/GenTimerMixin": {
+      "doFill": "Lnet/minecraft/world/level/levelgen/NoiseBasedChunkGenerator;m_224284_(Lnet/minecraft/world/level/levelgen/blending/Blender;Lnet/minecraft/world/level/StructureManager;Lnet/minecraft/world/level/levelgen/RandomState;Lnet/minecraft/world/level/chunk/ChunkAccess;II)Lnet/minecraft/world/level/chunk/ChunkAccess;"
+    }
+  },
+  "data": {
+    "searge": {
+      "com/fish/korolevcross/mixin/NoiseInterpolatorMixin": {
+        "fillArray": "Lnet/minecraft/world/level/levelgen/NoiseChunk$NoiseInterpolator;m_207362_([DLnet/minecraft/world/level/levelgen/DensityFunction$ContextProvider;)V",
+        "net.minecraft.world.level.levelgen.NoiseChunk$NoiseInterpolator": "net/minecraft/world/level/levelgen/NoiseChunk$NoiseInterpolator"
+      },
+      "com/fish/korolevcross/mixin/NoiseChunkMixin": {
+        "initializeForFirstCellX": "Lnet/minecraft/world/level/levelgen/NoiseChunk;m_188791_()V",
+        "fillSlice": "Lnet/minecraft/world/level/levelgen/NoiseChunk;m_209220_(ZI)V"
+      },
+      "com/fish/korolevcross/mixin/GenTimerMixin": {
+        "doFill": "Lnet/minecraft/world/level/levelgen/NoiseBasedChunkGenerator;m_224284_(Lnet/minecraft/world/level/levelgen/blending/Blender;Lnet/minecraft/world/level/StructureManager;Lnet/minecraft/world/level/levelgen/RandomState;Lnet/minecraft/world/level/chunk/ChunkAccess;II)Lnet/minecraft/world/level/chunk/ChunkAccess;"
+      }
+    }
+  }
+}

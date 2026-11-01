@@ -1,9 +1,11 @@
 package com.fish.korolevcross;
 
 import com.fish.korolevcross.config.ModConfig;
-import com.fish.korolevcross.gpu.GPUBridge;
+import com.fish.korolevcross.gpu.ChunkGpu;
+import com.fish.korolevcross.gpu.GenStats;
+import com.fish.korolevcross.gpu.NativeBridge;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.server.ServerStartingEvent;
+import net.minecraftforge.event.server.ServerStoppingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -24,21 +26,28 @@ public class KorolevCross {
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event) {
+    private void commonSetup(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            LOGGER.info("KorolevCross initializing GPU acceleration...");
-            try {
-                GPUBridge.extractAndLoadLibrary();
-                GPUBridge.initialize();
-                LOGGER.info("CUDA and OptiX initialized");
-            } catch (Throwable t) {
-                LOGGER.error("GPU init failed, chunk generation will use vanilla", t);
+            if (!ModConfig.enabled()) {
+                LOGGER.info("KorolevCross disabled by config");
+                return;
+            }
+            if (NativeBridge.load()) {
+                LOGGER.info("KorolevCross GPU density engine ready on {}", NativeBridge.nativeDeviceName());
+            } else {
+                LOGGER.warn("KorolevCross GPU unavailable ({}), chunk generation stays vanilla", NativeBridge.failureReason());
             }
         });
     }
 
     @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event) {
-        LOGGER.info("KorolevCross enabled on server");
+    public void onServerStopping(ServerStoppingEvent event) {
+        GenStats.report();
+        long chunks = ChunkGpu.acceleratedChunks();
+        long nanos = ChunkGpu.spentNanos();
+        if (chunks > 0) {
+            LOGGER.info("KorolevCross accelerated {} chunks, {} ms total, {} us per chunk", chunks, nanos / 1_000_000L,
+                    nanos / 1000L / chunks);
+        }
     }
 }
